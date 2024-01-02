@@ -15,8 +15,7 @@ function ResourcesContainer() {
         <Route path="/tag" element={<TagPage/>}    />
         <Route path="/search" element={<SearchPage/>} />
         <Route path="/folder" element={<FolderPage/>} />
-      </Routes>  
-      ResourceContainer
+      </Routes>
     </div>
 
   )
