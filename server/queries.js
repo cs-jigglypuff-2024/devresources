@@ -8,7 +8,8 @@ queries.search = async (str) => {
   const query = `
     SELECT id
     FROM resources
-    WHERE title LIKE $1;
+    WHERE title LIKE $1
+    LIMIT 30;
   `;
   values = [`%${str}%`];
 

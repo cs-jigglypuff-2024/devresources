@@ -1,6 +1,6 @@
 import React from 'react';
 
-// When searching, return the ids of any resources with that in the title (limit 20)
+// When searching, return the ids of any resources with that in the title (limit 30)
 
 const Search = () => {
   const searchHandler = (e) => {
