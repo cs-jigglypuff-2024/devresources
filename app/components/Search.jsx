@@ -6,6 +6,12 @@ const Search = () => {
   const searchHandler = (e) => {
     e.preventDefault();
     console.log('Searching for', document.getElementById('query').value);
+    //get request to server qith search query
+    fetch('/search')
+      .then((res) => res.json())
+      .then((ids) => {
+        console.log(ids);
+      });
   };
 
   const field = (
