@@ -1,0 +1,35 @@
+.grid {
+  display: flex;
+  flex-flow: row wrap;
+  flex-basis: 30%;
+  min-width: 200px;
+}
+
+.row {
+  display: flex;
+  flex-flow: row nowrap;
+  flex-basis: 28%;
+  min-width: 22%;
+}
+
+.rowView {
+  background-color: aquamarine;
+}
+
+.card {
+  display: flex;
+  flex-flow: column nowrap;
+  border: 1px solid black;
+  flex-basis: auto;
+  float: left;
+  background-color: rgb(240, 242, 247);
+  padding: 1% 2%;
+  margin: 2%;
+  border-radius: 15px; 
+}
+
+.tags {
+  display: flex;
+  flex-flow: row wrap;
+  flex-basis: auto;
+}
