@@ -10,6 +10,7 @@ app.use(cookieParser());
 
 // route handler to respond with main app
 app.get('/', (req, res) => {
+  console.log('accessing');
   return res.status(200).sendFile(path.join(__dirname, '../app/index.html'));
 });
 
