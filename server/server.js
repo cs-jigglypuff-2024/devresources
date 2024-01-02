@@ -4,6 +4,8 @@ const path = require('path');
 const app = express();
 const PORT = 3000;
 
+const filterController = require('./controllers/filterController');
+
 app.use(express.json());
 app.use(express.urlencoded());
 app.use(cookieParser());
@@ -12,6 +14,10 @@ app.use(cookieParser());
 app.get('/', (req, res) => {
   console.log('accessing');
   return res.status(200).sendFile(path.join(__dirname, '../app/index.html'));
+});
+
+app.get('/search/:searchStr', filterController.search, (req, res) => {
+  res.status(200).json(res.locals.ids);
 });
 
 // catch-all route handler for any requests to an unknown route
