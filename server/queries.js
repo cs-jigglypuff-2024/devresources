@@ -8,13 +8,15 @@ queries.search = async (str) => {
   const query = `
     SELECT id
     FROM resources
-    WHERE title LIKE '%$1%';
+    WHERE title LIKE $1;
   `;
-  values = [str];
+  values = [`%${str}%`];
 
   const result = await db.query(query, values);
-  const ids = result.rows[0];
-  console.log('query restult:', ids);
+  console.log(result);
+  const ids = result.rows;
+  console.log('query result:', ids);
+  return ids;
 };
 
 module.exports = queries;

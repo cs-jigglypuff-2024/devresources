@@ -5,9 +5,10 @@ import React from 'react';
 const Search = () => {
   const searchHandler = (e) => {
     e.preventDefault();
-    console.log('Searching for', document.getElementById('query').value);
+    const searchStr = document.getElementById('query').value;
+    console.log('Searching for', searchStr);
     //get request to server qith search query
-    fetch('/search')
+    fetch(`/search/${searchStr}`)
       .then((res) => res.json())
       .then((ids) => {
         console.log(ids);
