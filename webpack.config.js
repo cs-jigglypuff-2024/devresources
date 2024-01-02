@@ -18,7 +18,7 @@ module.exports = {
     hot: true,
     proxy: {
       // list every endpoint
-      // '/endpoint': 'http://localhost:3000'
+      '/search/*': 'http://localhost:3000',
     },
   },
   module: {
