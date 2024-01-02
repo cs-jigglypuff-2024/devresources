@@ -41,7 +41,7 @@ const queries = {};
 
 // Input: a search query string
 // Output: returns array of ids of resources with the string in the title
-queries.search = async (str) => {
+queries.titleSearch = async (str) => {
   const query = `
     SELECT id
     FROM resources
@@ -55,6 +55,11 @@ queries.search = async (str) => {
   const ids = result.rows;
   console.log('query result:', ids);
   return ids;
+};
+
+// Input 
+queries.increamentResourceCount = async (str) => {
+
 };
 
 module.exports = queries;
