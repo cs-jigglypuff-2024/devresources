@@ -6,6 +6,8 @@ function RowView() {
   return (
     <div className='rowView'>
       <CardView></CardView>
+      <CardView></CardView>
+      <CardView></CardView>
     </div>
   )
 }

@@ -9,6 +9,11 @@ function GridView() {
     <div className="grid">
       GridView
       <CardView></CardView>
+      <CardView></CardView>
+      <CardView></CardView>
+      <CardView></CardView>
+      <CardView></CardView>
+      <CardView></CardView>
     </div>
   )
 }

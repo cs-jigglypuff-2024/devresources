@@ -5,7 +5,7 @@ function HomePage() {
   //fetch queries here, prop drill all returns into appropriate row views below.
   return (
     <div className='rowView'>
-      rowview below
+      HomePage, row view below:
       <RowView/>
     </div>
   )

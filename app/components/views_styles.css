@@ -20,12 +20,13 @@
   display: flex;
   flex-flow: column nowrap;
   border: 1px solid black;
-  flex-basis: auto;
+  flex-basis: 15%;
+  max-width: 27%;
   float: left;
   background-color: rgb(240, 242, 247);
-  padding: 1% 2%;
-  margin: 2%;
-  border-radius: 15px; 
+  padding: 0.5% 1%;
+  margin: 1%;
+  border-radius: 15px;
 }
 
 .tags {

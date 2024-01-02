@@ -6,7 +6,7 @@ function SearchPage() {
   //fetch query here, prop drill all returns into appropriate row views below.
   return (
     <div>
-      SearchPage
+      SearchPage, gridView below:
       <GridView></GridView>
     </div>
   )
