@@ -17,7 +17,7 @@ function SearchPage() {
     headers: {
       'Content-Type': 'application/json',
     },
-    body: JSON.stringify(ids),
+    body: JSON.stringify({ ids }),
   })
     .then((res) => res.json())
     .then((resArr) => {
