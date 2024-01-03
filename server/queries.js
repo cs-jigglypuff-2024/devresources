@@ -170,4 +170,28 @@ queries.getTagIdsFromUsers = async (num) => {
   return result;
 };
 
+queries.getResourceIdsByTag = async (tag, type, limit) => {
+  const query1 = `SELECT id FROM tags WHERE LOWER(name) = $1`;
+  const value1 = [tag];
+  const result1 = await db.query(query1, value1);
+  const tagId = result1.rows[0].id;
+  console.log('tagId', tagId);
+
+  let query2;
+  if (type === 'new') {
+    query2 = `SELECT resource_id FROM resource_tag_join WHERE tag_id = $1 ORDER BY resource_id DESC LIMIT $2`;
+  } else if (type === 'trending') {
+    // query2 = `SELECT resource_id FROM resource_tag_join WHERE tag_id = $1 ORDER BY clicks DESC LIMIT $2`;
+    query2 = `SELECT resource_id FROM resource_tag_join WHERE tag_id = $1 LIMIT $2`;
+  }
+
+  const values2 = [tagId, limit];
+  const result2 = await db.query(query2, values2);
+  console.log('result2:', result2);
+  const idObj = result2.rows;
+  const ids = idObj.map((el) => Number(el.resource_id));
+  console.log('query result:', ids);
+  return ids;
+};
+
 module.exports = queries;
