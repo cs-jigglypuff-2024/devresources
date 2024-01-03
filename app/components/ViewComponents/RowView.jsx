@@ -1,7 +1,7 @@
 import React from 'react';
 import CardView from '../CardComponents/CardView';
 import '../views_styles.scss';
-function RowView( { cards }) {
+function RowView( { cards, title }) {
 
   console.log('drilled cards in grid view:',cards);
   const cardViewArray = cards.map( (card) => {
@@ -9,7 +9,8 @@ function RowView( { cards }) {
   })  
   
   return (
-    <div className='rowViewWrapper'>
+    <div id='rowViewWrapper'>
+      <h2>{title}</h2>
       <CardView></CardView>
       <CardView></CardView>
       <CardView></CardView>
