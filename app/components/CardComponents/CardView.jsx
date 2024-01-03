@@ -4,13 +4,13 @@ import '../views_styles.scss';
 
 function CardView( { card } ) {
   //further destructure card into variables
-  // const { 
-  //   title, 
-  //   url, 
-  //   description, 
-  //   clicks, 
-  //   date_added
-  // } = card;
+  const { 
+    title, 
+    url, 
+    description, 
+    clicks, 
+    date_added
+  } = card;
   
   //card will receive, via props: title, description, url, clicks, date_added, type and a list of tags
   //mock props:
@@ -27,20 +27,20 @@ function CardView( { card } ) {
   //note how Tags component is outside the <a>, so that clicking a tag doesn't link to a url.
   return (
     <div className='card'>
-      {/* mock cards: */}
+      {/* mock cards:
       <a href={cards.url}>
         <h2>{cards.title}</h2>
         <p> {cards.description}</p>
         <p> {cards.clicks}</p>
         <p> {cards.date_added}</p>
-      </a>
+      </a> */}
       {/* actual card data: prop drill */}
-      {/* <a href={url}>
+      <a href={url}>
         <h2>{title}</h2>
         <p>{description}</p>
         <p>{clicks}</p>
         <p>{date_added}</p>
-      </a> */}
+      </a>
         {/* <TagsView tagList={props.tagList}/> */}
     </div>
   )

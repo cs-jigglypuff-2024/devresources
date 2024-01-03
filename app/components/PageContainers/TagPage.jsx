@@ -6,8 +6,8 @@ function TagPage() {
   //fetch queries here, prop drill all returns into appropriate row views below.
   return (
     <div>
-      TagPage, row view below:
-    <RowView></RowView>
+    <RowView cards={newCards} title={'New'}></RowView>
+    <RowView cards={newCards} title={'Trending'}></RowView>
     </div>
   )
 }

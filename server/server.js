@@ -22,7 +22,6 @@ app.get('/search/:searchStr', filterController.search, (req, res) => {
 });
 
 app.post('/resources', filterController.getResources, (req, res) => {
-  console.log('end of resoruces chain');
   console.log('resources:', res.locals.resources);
   res.status(200).json(res.locals.resources);
 });

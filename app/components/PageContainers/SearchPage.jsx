@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import GridView from '../ViewComponents/GridView';
 import { useLocation } from 'react-router-dom';
 
@@ -11,23 +11,24 @@ function SearchPage() {
   console.log('Switched to search page');
   console.log('IDs:', ids);
 
-  // get an array of objects from the server
-  fetch('/resources', {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-    },
-    body: JSON.stringify({ ids }),
-  })
-    .then((res) => res.json())
-    .then((resArr) => {
-      setCards(resArr);
-    });
+  useEffect(() => {
+    // get an array of objects from the server
+    fetch('/resources', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ ids }),
+    })
+      .then((res) => res.json())
+      .then((resArr) => {
+        setCards(resArr);
+      });
+  }, []);
 
   return (
     <div>
-      SearchPage, gridView below:
-      <GridView cards={cards} />
+      <GridView cards={cards} title={'search results:'}/>
     </div>
   );
 }

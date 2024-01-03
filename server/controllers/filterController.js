@@ -3,7 +3,8 @@ const query = require('../queries');
 const filterController = {};
 
 filterController.search = (req, res, next) => {
-  const { searchStr } = req.params;
+  let { searchStr } = req.params;
+  searchStr = searchStr.toLowerCase();
   console.log('Search Requested for:', searchStr);
   query.titleSearch(searchStr).then((ids) => {
     console.log('Search complete');
@@ -15,7 +16,7 @@ filterController.search = (req, res, next) => {
 
 filterController.getResources = async (req, res, next) => {
   const { ids } = req.body;
-  console.log('enteted getResources:', ids);
+  console.log('entered getResources:', ids);
   const resources = [];
   // For each resource id, query the databse and add the returned resource object to the cards object
   for (const id of ids) {
