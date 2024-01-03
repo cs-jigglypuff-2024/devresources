@@ -17,9 +17,11 @@ function ResourcesContainer() {
         <Route path='/search' element={<SearchPage />} />
         <Route path='/folder' element={<FolderPage />} />
         <Route path='/tagPage' element={<TagPage />} />
+        
       </Routes>
     </div>
   );
 }
 
 export default ResourcesContainer;
+

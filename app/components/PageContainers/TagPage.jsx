@@ -16,7 +16,7 @@ function TagPage() {
       headers: {
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify({ tag, type: 'new', num: 3 }),
+      body: JSON.stringify({ tag, type: 'new', num: 10 }),
     })
       .then((res) => res.json())
       .then((ids) => {
