@@ -1,5 +1,5 @@
 import React from 'react'
-
+import '../views_styles.scss'
 const AddResourceModal = ({open, close}) => {
   
   const newResourceHandler = (e) => {
