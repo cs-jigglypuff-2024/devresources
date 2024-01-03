@@ -84,14 +84,18 @@ queries.newResource = async (obj) => {
   return;
 };
 
-queries.newUser = async (str) => {
-  const query = 'INSERT INTO users (username) VALUES ($1)';
+queries.newUser = async (username) => {
+  const query = 'INSERT INTO users (username) VALUES ($1) RETURNING id';
 
-  const value = [str];
+  const value = [username];
 
-  await db.query(query, value);
-  return;
+  const result = await db.query(query, value);
+  const id = result.rows[0].id;
+  console.log(id);
+  return id;
 };
+
+queries.newUser('Aaron');
 
 queries.newTag = async (str) => {
   const query = 'INSERT INTO tags (name) VALUES ($1)';
