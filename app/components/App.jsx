@@ -47,24 +47,11 @@ export default function App() {
       <div className='header'>
         <h1>{greeting}</h1>
         <Search />
-        <button
-          className='addResourceButton'
-          onClick={() => setShowAddResource(true)}
-        >
-          Add Resource
-        </button>
-        <AddResourceModal
-          open={showAddResource}
-          close={() => setShowAddResource(false)}
-        />
+        <button className="headerButton" onClick={()=>setShowAddResource(true)}>Add Resource</button>
+        <AddResourceModal open={showAddResource} close={()=>setShowAddResource(false)}/>
+      <Link to='/signup'><button className='headerButton'>Signup</button></Link>
+      <Link to='/login'><button className='headerButton'>Login</button></Link>
       </div>
-
-      <Link to='/signup'>
-        <button>Signup</button>
-      </Link>
-      <Link to='/login'>
-        <button>Login</button>
-      </Link>
 
       <div id='mainPage'>
         <SideMenu tags={tags} />
