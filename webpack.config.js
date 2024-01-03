@@ -24,6 +24,7 @@ module.exports = {
       '/newResource': 'http://localhost:3000',
       '/username': 'http://localhost:3000',
       '/testUser': 'http://localhost:3000',
+      '/userTags': 'http://localhost:3000',
     },
   },
   module: {

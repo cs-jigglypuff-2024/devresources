@@ -26,6 +26,14 @@ export default function App() {
     .then((res) => res.json())
     .then((username) => {
       if (username) setGreeting('Hello ' + username);
+
+      // Get user's followed tags
+      fetch('/userTags')
+        .then((res) => res.json())
+        .then((tags) => {
+          console.log('TAGS:', tags);
+        })
+        .catch((err) => {});
     })
     .catch((err) => {});
 

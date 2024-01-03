@@ -95,7 +95,6 @@ queries.newUser = async (username) => {
   return id;
 };
 
-
 queries.newTag = async (str) => {
   const query = 'INSERT INTO tags (name) VALUES ($1)';
 
@@ -171,6 +170,23 @@ queries.getTagIdsFromUsers = async (num) => {
   const result = await db.query(query, value);
   console.log('This is response from getTagIdsFromUsers query: ', result);
   return result;
+};
+
+queries.getTagNamesFromUser = async (user_id) => {
+  const query = `
+  SELECT tags.name 
+  FROM tags 
+  INNER JOIN user_tag_join 
+  ON tags.id = user_tag_join.tag_id
+  WHERE user_tag_join.user_id = $1
+  `;
+
+  const value = [user_id];
+
+  const result = await db.query(query, value);
+  const tagsObj = result.rows;
+  const tags = tagsObj.map((el) => Number(el.name));
+  return tags;
 };
 
 queries.getResourceIdsByTag = async (tag, type, limit) => {

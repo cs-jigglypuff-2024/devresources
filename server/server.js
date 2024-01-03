@@ -6,6 +6,7 @@ const PORT = 3000;
 
 const filterController = require('./controllers/filterController');
 const resourceController = require('./controllers/resourceController');
+const userController = require('./controllers/userController');
 
 app.use(express.json());
 app.use(express.urlencoded());
@@ -27,6 +28,12 @@ app.get('/testUser', (req, res) => {
 app.get('/username', (req, res) => {
   const username = req.cookies.username;
   return res.status(200).json(username);
+});
+
+// Return list of tags a user follows
+app.get('/userTags', userController.getTags, (req, res) => {
+  const tags = res.locals.tags;
+  return res.status(200).json(tags);
 });
 
 // Find resource ids for resources with a given string in the title
