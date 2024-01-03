@@ -1,19 +1,20 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import CardView from '../CardComponents/CardView';
 import '../views_styles.scss';
+import { useState } from 'react';
 
 function GridView({ cards , title }) {
-  //map received props array to components and return below in a flexbox with flex-flow: row, wrap
-  console.log('drilled cards in grid view:', cards);
+  //these are all cards
   const cardViewArray = cards.map((card) => <CardView card={card}></CardView>);
-
   return (
-    <>
-      <h2>{title}</h2>
+    <div className='grid'>
+      <div className='gridHeader'>
+        <h2>{title}</h2>
+      </div>
       <div id='gridViewWrapper'>
         {cardViewArray}
       </div>
-    </>
+    </div>
   );
 }
 
