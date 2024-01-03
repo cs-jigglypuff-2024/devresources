@@ -14,6 +14,7 @@ import HomePage from './PageContainers/HomePage';
 import SearchPage from './PageContainers/SearchPage';
 import FolderPage from './PageContainers/FolderPage';
 import TagPage from './PageContainers/TagPage';
+import TagsView from './CardComponents/TagsView';
 import './views_styles.scss';
 import AddResourceModal from './AddResourceComponents/AddResourceModal';
 
@@ -74,6 +75,7 @@ export default function App() {
           <Route path='/search' element={<SearchPage />} />
           <Route path='/folder' element={<FolderPage />} />
           <Route path='/tagPage' element={<TagPage />} />
+          <Route path='/tagsView' element={<TagsView />} />
         </Routes>
       </div>
       <SideMenu tags={tags} />

@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'react';
 import '../views_styles.scss';
 
 function TagsView(props) {
@@ -6,10 +6,10 @@ function TagsView(props) {
   //for now, two mock tags as paragraphs
   return (
     <div className='tags'>
-      <p>(tag1)</p>
-      <p>(tag2)</p>
+      <p>tag1</p>
+      <p>tag2</p>
     </div>
-  )
+  );
 }
 
-export default TagsView
+export default TagsView;

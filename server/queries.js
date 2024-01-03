@@ -193,7 +193,7 @@ queries.getResourceIdsByTag = async (tag, type, limit) => {
   const query1 = `SELECT id FROM tags WHERE LOWER(name) = $1`;
   const value1 = [tag];
   const result1 = await db.query(query1, value1);
-  const tagId = result1.rows[0].id;
+  const tagId = result1.rows[0]?.id;
   console.log('tagId', tagId);
 
   let query2;
