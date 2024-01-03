@@ -132,11 +132,20 @@ queries.addTagToUser = async (userId, tagId) => {
 
 //TODO: make this query work
 queries.addTagByNameToUser = async (userId, tagName) => {
-  const query = 'INSERT INTO user_tag_join (user_id, tag_id) VALUES ($1, $2)';
+  const query1 = `
+    SELECT id
+    FROM tags
+    WHERE name = $1
+  `;
+  const values1 = [tagName];
+  const result1 = await db.query(query1, values1);
+  const tagId = result1.rows[0].id;
 
-  const values = [userId, tagId];
+  const query2 = 'INSERT INTO user_tag_join (user_id, tag_id) VALUES ($1, $2)';
 
-  await db.query(query, values);
+  const values2 = [userId, tagId];
+
+  await db.query(query2, values2);
   return;
 };
 
