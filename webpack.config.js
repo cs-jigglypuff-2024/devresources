@@ -24,6 +24,7 @@ module.exports = {
       '/callback': 'http://localhost:3000',
       '/newResource': 'http://localhost:3000',
       '/getTags': 'http://localhost:3000',
+      '/count': 'http://localhost:3000'
     },
   },
   module: {

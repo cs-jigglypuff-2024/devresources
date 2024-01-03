@@ -8,6 +8,7 @@ const filterController = require('./controllers/filterController');
 const authController = require('./controllers/authController');
 const cookieController = require('./controllers/cookieController');
 const resourceController = require('./controllers/resourceController');
+const countController = require('./controllers/countController');
 
 app.use(express.json());
 app.use(express.urlencoded());
@@ -24,6 +25,9 @@ app.get('/search/:searchStr', filterController.search, (req, res) => {
   res.status(200).json(res.locals.ids);
 });
 
+app.post('/count', countController.increament, (req, res) => {
+  res.status(200).send('done');
+})
 // Find resource ids for resources with a given tag
 app.post('/search/tag', filterController.searchTag, (req, res) => {
   res.status(200).json(res.locals.ids);
