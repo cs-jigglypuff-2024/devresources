@@ -54,13 +54,23 @@ app.post('/resources', filterController.getResources, (req, res) => {
   res.status(200).json(res.locals.resources);
 });
 
-app.get('/callback', authController.token, cookieController.addUser, (req, res) => {
-  res.status(200).redirect('/')
-});
+app.get(
+  '/callback',
+  authController.token,
+  cookieController.addUser,
+  (req, res) => {
+    res.status(200).redirect('/');
+  }
+);
 
-app.get('/callback', authController.token, cookieController.addUser, (req, res) => {
-  res.status(200).redirect('/')
-});
+app.get(
+  '/callback',
+  authController.token,
+  cookieController.addUser,
+  (req, res) => {
+    res.status(200).redirect('/');
+  }
+);
 
 // Add new resource to database
 app.post('/newResource', resourceController.add, (req, res) => {
@@ -71,8 +81,8 @@ app.post('/newResource', resourceController.add, (req, res) => {
 // Get all tags
 app.get('/getTags', resourceController.getTags, (req, res) => {
   console.log('done getting tags');
-  res.status(200).json(res.locals.tags)
-})
+  res.status(200).json(res.locals.tags);
+});
 
 // catch-all route handler for any requests to an unknown route
 app.use('*', (req, res) => {

@@ -19,7 +19,12 @@ function TagsView() {
   //map input array from props (props.tagList) to capsule UI elements with links to tagPage view
   const Tags = tags.map((tag) => <Tag tag={tag} />);
 
-  return <div className='tags'>{Tags}</div>;
+  return (
+    <>
+      <h1>All Tags</h1>
+      <div className='tags'>{Tags}</div>
+    </>
+  );
 }
 
 export default TagsView;
