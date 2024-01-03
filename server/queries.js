@@ -36,7 +36,6 @@ Used to create folder_resource_join with folder_id as ‘id’ from folders and 
 
 */
 
-
 const queries = {};
 
 // Input: a search query string
@@ -52,127 +51,124 @@ queries.titleSearch = async (str) => {
 
   const result = await db.query(query, values);
   console.log(result);
-  const ids = result.rows;
+  const idObj = result.rows;
+  const ids = idObj.map((el) => Number(el.id));
   console.log('query result:', ids);
   return ids;
 };
 
 queries.incrementResourceCount = async (str) => {
-  const query = 'UPDATE resources SET clicks = clicks + 1 WHERE id = $1'
+  const query = 'UPDATE resources SET clicks = clicks + 1 WHERE id = $1';
 
-  const value = [str]
+  const value = [str];
 
-  await db.query(query, value)
+  await db.query(query, value);
 
-  return
+  return;
 };
 
 queries.newResource = async (obj) => {
+  const query =
+    'INSERT INTO resources (title, url, description, clicks, date_added) VALUES ($1, $2, $3, $4, $5)';
 
-  const query = 'INSERT INTO resources (title, url, description, clicks, date_added) VALUES ($1, $2, $3, $4, $5)'
-
-  const values = [obj.title, obj.url, obj.description, obj.clicks, obj.date_added]
+  const values = [
+    obj.title,
+    obj.url,
+    obj.description,
+    obj.clicks,
+    obj.date_added,
+  ];
 
   //obj.date_added must be string in this format: '2000/12/10'
 
-  await db.query(query, values)
-  return
+  await db.query(query, values);
+  return;
 };
 
 queries.newUser = async (str) => {
+  const query = 'INSERT INTO users (username) VALUES ($1)';
 
-  const query = 'INSERT INTO users (username) VALUES ($1)'
+  const value = [str];
 
-  const value = [str]
-
-  await db.query(query, value)
-  return
+  await db.query(query, value);
+  return;
 };
 
 queries.newTag = async (str) => {
+  const query = 'INSERT INTO tags (name) VALUES ($1)';
 
-  const query = 'INSERT INTO tags (name) VALUES ($1)'
+  const value = [str];
 
-  const value = [str]
-
-  await db.query(query, value)
-  return
+  await db.query(query, value);
+  return;
 };
 
 queries.newFolder = async (str) => {
-  
-  const query = 'INSERT INTO tags (name) VALUES ($1)'
+  const query = 'INSERT INTO tags (name) VALUES ($1)';
 
-  const value = [str]
+  const value = [str];
 
-  await db.query(query, value)
-  return
-}
+  await db.query(query, value);
+  return;
+};
 
 queries.addTagToUser = async (obj) => {
+  const query = 'INSERT INTO user_tag_join (user_id, tag_id) VALUES ($1, $2)';
 
-  const query = 'INSERT INTO user_tag_join (user_id, tag_id) VALUES ($1, $2)'
+  const values = [obj.userId, obj.tagId];
 
-  const values = [obj.userId, obj.tagId]
-
-  await db.query(query, values)
-  return
+  await db.query(query, values);
+  return;
 };
 
 queries.addTagToResource = async (obj) => {
+  const query =
+    'INSERT INTO resource_tag_join (resource_id, tag_id) VALUES ($1, $2)';
 
-  const query = 'INSERT INTO resource_tag_join (resource_id, tag_id) VALUES ($1, $2)'
+  const values = [obj.resourceId, obj.tagId];
 
-  const values = [obj.resourceId, obj.tagId]
-
-  await db.query(query, values)
-  return
-
-}
+  await db.query(query, values);
+  return;
+};
 
 queries.addResourceToFolder = async (obj) => {
+  const query =
+    'INSERT INTO folder_resource_join (folder_id, resource_id) VALUES ($1, $2)';
 
-  const query = 'INSERT INTO folder_resource_join (folder_id, resource_id) VALUES ($1, $2)'
+  const values = [obj.folderId, obj.resourceId];
 
-  const values = [obj.folderId, obj.resourceId]
-
-  await db.query(query, values)
-  return
+  await db.query(query, values);
+  return;
 };
 
 queries.getResource = async (num) => {
+  const query = 'SELECT * FROM resources WHERE id = $1';
+  const value = [num];
 
-  const query = 'SELECT * FROM resources WHERE id = $1'
-  const value = [num]
-
-  const result = await db.query(query, value)
-  console.log('This is response from getResource query: ', result)
-  return result
+  const result = await db.query(query, value);
+  const resource = result.rows[0];
+  console.log('This is response from getResource query: ', resource);
+  return resource;
 };
 
 queries.getResourceIdsFromFolder = async (num) => {
+  const query = `SELECT resource_id FROM folder_resource_join WHERE folder_id = $1`;
 
-  const query = `SELECT resource_id FROM folder_resource_join WHERE folder_id = $1`
+  const value = [num];
 
-  const value = [num]
-
-  const result = await db.query(query, value)
-  console.log('This is response from getResourceIdsFromFolder query: ', result)
-  return result
+  const result = await db.query(query, value);
+  console.log('This is response from getResourceIdsFromFolder query: ', result);
+  return result;
 };
 
 queries.getTagIdsFromUsers = async (num) => {
+  const query = 'SELECT tag_id FROM user_tag_join WHERE user_id = $1';
 
-  const query = 'SELECT tag_id FROM user_tag_join WHERE user_id = $1'
+  const value = [num];
 
-  const value = [num]
-
-  const result = await db.query(query, value)
-  console.log('This is response from getTagIdsFromUsers query: ', result)
-  return result
-}
-
-
-
+  const result = await db.query(query, value);
+  console.log('This is response from getTagIdsFromUsers query: ', result);
+  return result;
+};
 
 module.exports = queries;
