@@ -22,6 +22,7 @@ module.exports = {
       '/search/tag': 'http://localhost:3000',
       '/resources': 'http://localhost:3000',
       '/newResource': 'http://localhost:3000',
+      '/username': 'http://localhost:3000',
       '/testUser': 'http://localhost:3000',
     },
   },

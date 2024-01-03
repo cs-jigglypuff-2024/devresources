@@ -95,7 +95,6 @@ queries.newUser = async (username) => {
   return id;
 };
 
-queries.newUser('Aaron');
 
 queries.newTag = async (str) => {
   const query = 'INSERT INTO tags (name) VALUES ($1)';

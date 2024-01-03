@@ -24,6 +24,11 @@ app.get('/testUser', (req, res) => {
   return res.sendStatus(200);
 });
 
+app.get('/username', (req, res) => {
+  const username = req.cookies.username;
+  return res.status(200).json(username);
+});
+
 // Find resource ids for resources with a given string in the title
 app.get('/search/:searchStr', filterController.search, (req, res) => {
   res.status(200).json(res.locals.ids);

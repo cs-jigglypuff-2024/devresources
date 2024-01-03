@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import SideMenu from './SideMenu';
 import Search from './Search';
 import {
@@ -17,23 +17,43 @@ import TagPage from './PageContainers/TagPage';
 import './views_styles.scss';
 import AddResourceModal from './AddResourceComponents/AddResourceModal';
 
-
 export default function App() {
-  const [showAddResource, setShowAddResource] = useState(false)
+  const [showAddResource, setShowAddResource] = useState(false);
+  const [greeting, setGreeting] = useState('Please Login');
+
+  // Get username if logged in
+  fetch('/username')
+    .then((res) => res.json())
+    .then((username) => {
+      if (username) setGreeting('Hello ' + username);
+    })
+    .catch((err) => {});
 
   return (
     <Router>
       <div className='header'>
-        <h1>App header</h1>
+        <h1>{greeting}</h1>
         <Search />
-        <button className="addResourceButton" onClick={()=>setShowAddResource(true)}>Add Resource</button>
-        <AddResourceModal open={showAddResource} close={()=>setShowAddResource(false)}/>
+        <button
+          className='addResourceButton'
+          onClick={() => setShowAddResource(true)}
+        >
+          Add Resource
+        </button>
+        <AddResourceModal
+          open={showAddResource}
+          close={() => setShowAddResource(false)}
+        />
       </div>
-      
-      <Link to='/signup'><button>Signup</button></Link>
-      <Link to='/login'><button>Login</button></Link>
-      
-    <div className='resourcesContainer'>
+
+      <Link to='/signup'>
+        <button>Signup</button>
+      </Link>
+      <Link to='/login'>
+        <button>Login</button>
+      </Link>
+
+      <div className='resourcesContainer'>
         <Routes>
           <Route path='/login' element={<Login />} />
           <Route path='/signup' element={<Signup />} />
