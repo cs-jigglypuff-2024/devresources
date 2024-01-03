@@ -184,8 +184,8 @@ queries.getTagNamesFromUser = async (user_id) => {
   const value = [user_id];
 
   const result = await db.query(query, value);
-  const tagsObj = result.rows;
-  const tags = tagsObj.map((el) => Number(el.name));
+  const tagsObjArr = result.rows;
+  const tags = tagsObjArr.map((el) => el.name);
   return tags;
 };
 
