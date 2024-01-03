@@ -20,22 +20,26 @@ import AddResourceModal from './AddResourceComponents/AddResourceModal';
 export default function App() {
   const [showAddResource, setShowAddResource] = useState(false);
   const [greeting, setGreeting] = useState('Please Login');
+  const [tags, setTags] = useState([]);
 
-  // Get username if logged in
-  fetch('/username')
-    .then((res) => res.json())
-    .then((username) => {
-      if (username) setGreeting('Hello ' + username);
+  useEffect(() => {
+    // Get username if logged in
+    fetch('/username')
+      .then((res) => res.json())
+      .then((username) => {
+        if (username) setGreeting('Hello ' + username);
 
-      // Get user's followed tags
-      fetch('/userTags')
-        .then((res) => res.json())
-        .then((tags) => {
-          console.log('TAGS:', tags);
-        })
-        .catch((err) => {});
-    })
-    .catch((err) => {});
+        // Get user's followed tags
+        fetch('/userTags')
+          .then((res) => res.json())
+          .then((tags) => {
+            console.log('TAGS:', tags);
+            setTags(tags);
+          })
+          .catch((err) => {});
+      })
+      .catch((err) => {});
+  }, []);
 
   return (
     <Router>
@@ -72,7 +76,7 @@ export default function App() {
           <Route path='/tagPage' element={<TagPage />} />
         </Routes>
       </div>
-      <SideMenu />
+      <SideMenu tags={tags} />
     </Router>
   );
 }
