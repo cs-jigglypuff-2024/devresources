@@ -31,8 +31,8 @@ $highlight_color: rgb(219, 235, 239);
   min-width: 5%;
 }
 
-#rowViewWrapper {
-  display:flex;
+.rowViewWrapper {
+  display: flex;
   align-items: center;
   width: 95%;
   margin: 3%;
@@ -43,7 +43,7 @@ $highlight_color: rgb(219, 235, 239);
   flex-flow: column nowrap;
   justify-content: space-between;
   border: 1px solid;
-  border-color: darken($highlight_color,15%);
+  border-color: darken($highlight_color, 15%);
   // flex-basis: 15%;
   max-width: 50%;
   float: left;
@@ -52,18 +52,24 @@ $highlight_color: rgb(219, 235, 239);
   margin: 1%;
   flex-basis: 28%;
   border-radius: 25px;
-  transition: border 0.5s ease, box-shadow .3s ease, transform .2s ease, flex-basis .4s ease, flex-grow .4s ease, margin .4s ease;
- &:hover{
-    box-shadow: -6px -6px 15px lighten($highlight_color,5%),
-                 6px  6px 15px darken($highlight_color,10%);
+  transition:
+    border 0.5s ease,
+    box-shadow 0.3s ease,
+    transform 0.2s ease,
+    flex-basis 0.4s ease,
+    flex-grow 0.4s ease,
+    margin 0.4s ease;
+  &:hover {
+    box-shadow:
+      -6px -6px 15px lighten($highlight_color, 5%),
+      6px 6px 15px darken($highlight_color, 10%);
     border-color: $highlight_color;
     transform: scale(1.005);
-    background-color: lighten($highlight_color,0.5%);
+    background-color: lighten($highlight_color, 0.5%);
     flex-basis: 28%;
     margin: 1% 1.5%;
   }
-} 
-
+}
 
 .tags {
   display: flex;
@@ -71,8 +77,20 @@ $highlight_color: rgb(219, 235, 239);
   flex-basis: auto;
 }
 
-h2, p {
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+h2,
+p {
+  font-family:
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    'Segoe UI',
+    Roboto,
+    Oxygen,
+    Ubuntu,
+    Cantarell,
+    'Open Sans',
+    'Helvetica Neue',
+    sans-serif;
 }
 
 a {
@@ -84,7 +102,24 @@ a {
   background-color: $highlight_color;
   box-shadow: inset 0 0px 30px darken($highlight_color, 30%);
   height: 40vw;
+
 }
+
+#sideMenu {
+  display: inline-block;
+  padding: 15px;
+}
+
+.tag {
+  font-size: 20px;
+  text-align: center;
+  color: white;
+  background-color: darkblue;
+  border-radius: 10px;
+  padding: 7px;
+  margin: 10px 0px;
+}
+
 
 
 .addResourceOverlay {
