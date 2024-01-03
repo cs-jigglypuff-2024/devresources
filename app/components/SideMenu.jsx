@@ -10,9 +10,9 @@ function SideMenu() {
 
   return (
     <div id='sideMenu'>
-      <Tag tag='React' />
+      <Tag tag='react' />
       <Tag tag='interview-prep' />
-      <Tag tag='Javascript' />
+      <Tag tag='javascript' />
     </div>
   );
 }

@@ -22,7 +22,7 @@ app.get('/search/:searchStr', filterController.search, (req, res) => {
 });
 
 // Find resource ids for resources with a given tag
-app.get('/search/tag/:tag', filterController.searchTag, (req, res) => {
+app.post('/search/tag', filterController.searchTag, (req, res) => {
   res.status(200).json(res.locals.ids);
 });
 

@@ -170,14 +170,20 @@ queries.getTagIdsFromUsers = async (num) => {
   return result;
 };
 
-queries.getResourceIdsByTag = async (tag) => {
+queries.getResourceIdsByTag = async (tag, type, limit) => {
   const query1 = `SELECT id FROM LOWER(tags) WHERE name = $1`;
   const value1 = [tag];
   const result1 = await db.query(query1, value1);
   const tagId = result1.rows[0];
 
-  const query2 = `SELECT resource_id FROM resource_tag_join WHERE tag_id = ${tagId}`;
-  const result2 = await db.query(query2);
+  if (type === 'new') {
+    const query2 = `SELECT resource_id FROM resource_tag_join WHERE tag_id = $1 LIMIT = $2`;
+  } else if (type === 'trending') {
+    const query2 = `SELECT resource_id FROM resource_tag_join WHERE tag_id = $1 ORDER BY clicks DESC LIMIT $2`;
+  }
+
+  const values2 = [tagId, limit];
+  const result2 = await db.query(query2, values2);
   const idObj = result2.rows;
   const ids = idObj.map((el) => Number(el.id));
   console.log('query result:', ids);

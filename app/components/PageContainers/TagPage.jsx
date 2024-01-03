@@ -4,12 +4,12 @@ import RowView from '../ViewComponents/RowView';
 
 function TagPage() {
   const tag = useLocation().state.tag;
-  const newCards = [];
-  const trendingCards = [];
+  const newCards = [{}];
+  const trendingCards = [{}];
 
   useEffect(() => {
     // get new
-    
+    fetch(`/search/tag/{tag}`);
     // get trending
   }, [tag]);
 
