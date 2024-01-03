@@ -39,7 +39,7 @@ function CardView( { card } ) {
         <h2>{title}</h2>
         <p>{description}</p>
         <p>{clicks}</p>
-        <p>{date_added}</p>
+        <p>{date_added.slice(0,10)}</p>
       </a>
         {/* <TagsView tagList={props.tagList}/> */}
     </div>

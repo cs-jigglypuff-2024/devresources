@@ -5,6 +5,8 @@ const app = express();
 const PORT = 3000;
 
 const filterController = require('./controllers/filterController');
+const authController = require('./controllers/authController');
+const cookieController = require('./controllers/cookieController');
 const resourceController = require('./controllers/resourceController');
 
 app.use(express.json());
@@ -31,6 +33,14 @@ app.post('/search/tag', filterController.searchTag, (req, res) => {
 app.post('/resources', filterController.getResources, (req, res) => {
   console.log('resources:', res.locals.resources);
   res.status(200).json(res.locals.resources);
+});
+
+app.get('/callback', authController.token, cookieController.addUser, (req, res) => {
+  res.status(200).redirect('/')
+});
+
+app.get('/callback', authController.token, cookieController.addUser, (req, res) => {
+  res.status(200).redirect('/')
 });
 
 // Add new resource to database
