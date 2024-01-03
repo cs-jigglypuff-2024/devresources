@@ -13,4 +13,18 @@ filterController.search = (req, res, next) => {
   });
 };
 
+filterController.getResources = async (req, res, next) => {
+  const { ids } = req.body;
+  console.log('enteted getResources:', ids);
+  const resources = [];
+  // For each resource id, query the databse and add the returned resource object to the cards object
+  for (const id of ids) {
+    let resource = await query.getResource(id);
+    resources.push(resource);
+  }
+
+  res.locals.resources = resources;
+  return next();
+};
+
 module.exports = filterController;
