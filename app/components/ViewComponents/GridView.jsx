@@ -1,7 +1,6 @@
 import React, { useEffect } from 'react';
 import CardView from '../CardComponents/CardView';
 import '../views_styles.scss';
-import { useState } from 'react';
 
 function GridView({ cards , title }) {
   //these are all cards

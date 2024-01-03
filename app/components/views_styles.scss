@@ -82,7 +82,7 @@ $mixGlow: mix($highlight_color, $highlight_color2, 95%);
   flex-basis: auto;
 }
 
-h2, p {
+h1, h2, p {
   font-family: 
     system-ui, 
     -apple-system, 
@@ -127,9 +127,6 @@ a {
     transform: translate(2px, 2px);
     background-color: darken($highlight_color2,30%);
   }
-}
-  height: 40vw;
-
 }
 
 #sideMenu {
