@@ -27,5 +27,15 @@ resourceController.add = (req, res, next) => {
     });
 };
 
+resourceController.getTags = (req, res, next) => {
+  console.log('Getting tags from db...');
+  query.getTags()
+    .then((data) => {
+      console.log('data received');
+      res.locals.tags = data;
+      return next();
+    });
+};
+
 
 module.exports = resourceController;
