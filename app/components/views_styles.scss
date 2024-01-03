@@ -14,30 +14,35 @@ $highlight_color: rgb(219, 235, 239);
   min-width: 5%;
 }
 
-.rowView {
+.rowViewWrapper {
   display:flex;
+  align-items: center;
   margin: 3%;
+  width: 95%;
 }
 
 .card {
   display: flex;
   flex-flow: column nowrap;
+  border: 1px solid;
+  border-color: darken($highlight_color,15%);
   // flex-basis: 15%;
   max-width: 50%;
   float: left;
   background-color: $highlight_color;
   padding: 1% 2%;
   margin: 1%;
-  flex-basis: 27%;
+  flex-basis: 28%;
   border-radius: 25px;
-  transition: box-shadow .3s ease, transform .2s ease, flex-basis .4s ease, flex-grow .4s ease, margin .4s ease;
+  transition: border 0.5s ease, box-shadow .3s ease, transform .2s ease, flex-basis .4s ease, flex-grow .4s ease, margin .4s ease;
  &:hover{
-    box-shadow: -5px -6px 15px lighten($highlight_color,10%),
-                 3px  6px 15px darken($highlight_color,10%);
-            
-    transform: scale(1.01);
-    flex-basis: 27%;
-    margin: 1 1.5%;
+    box-shadow: -6px -6px 15px lighten($highlight_color,5%),
+                 6px  6px 15px darken($highlight_color,10%);
+    border-color: $highlight_color;
+    transform: scale(1.005);
+    background-color: lighten($highlight_color,0.5%);
+    flex-basis: 28%;
+    margin: 1% 1.5%;
     flex-grow: 1;
   }
 } 
