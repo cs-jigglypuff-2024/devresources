@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import ResourcesContainer from './ResourceContainer';
 import Search from './Search';
 import { BrowserRouter as Router, Route, Routes, Link, BrowserRouter } from 'react-router-dom';
 import Login from './Authentication/Login';
@@ -8,7 +7,8 @@ import HomePage   from './PageContainers/HomePage';
 import TagPage    from './PageContainers/TagPage';
 import SearchPage from './PageContainers/SearchPage';
 import FolderPage from './PageContainers/FolderPage';
-import './views_styles.scss';import AddResourceModal from './AddResourceComponents/AddResourceModal';
+import './views_styles.scss';
+import AddResourceModal from './AddResourceComponents/AddResourceModal';
 
 
 export default function App() {
@@ -25,6 +25,7 @@ export default function App() {
       
       <Link to='/signup'><button>Signup</button></Link>
       <Link to='/login'><button>Login</button></Link>
+    
     <div className="resourcesContainer"> 
       <Routes>
         <Route path="/login" element={<Login />} />
