@@ -14,6 +14,18 @@ filterController.search = (req, res, next) => {
   });
 };
 
+filterController.searchTag = (req, res, next) => {
+  let { tag } = req.params;
+
+  // console.log('Search Requested for:', searchStr);
+  // query.titleSearch(searchStr).then((ids) => {
+  //   console.log('Search complete');
+  //   console.log('Found ids:', ids);
+  //   res.locals.ids = ids;
+  //   return next();
+  // });
+};
+
 filterController.getResources = async (req, res, next) => {
   const { ids } = req.body;
   console.log('entered getResources:', ids);

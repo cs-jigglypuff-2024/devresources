@@ -16,10 +16,17 @@ app.get('/', (req, res) => {
   return res.status(200).sendFile(path.join(__dirname, '../app/index.html'));
 });
 
+// Find resource ids for resources with a given string in the title
 app.get('/search/:searchStr', filterController.search, (req, res) => {
   res.status(200).json(res.locals.ids);
 });
 
+// Find resource ids for resources with a given tag
+app.get('/search/tag/:tag', filterController.searchTag, (req, res) => {
+  res.status(200).json(res.locals.ids);
+});
+
+// Find resources based on an array of ids
 app.post('/resources', filterController.getResources, (req, res) => {
   console.log('resources:', res.locals.resources);
   res.status(200).json(res.locals.resources);
