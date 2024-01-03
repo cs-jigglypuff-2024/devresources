@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from 'react'
 import TagButton from './TagButton';
-
+import '../views_styles.scss'
 const AddResourceModal = ({open, close}) => {
 
   const newResourceHandler = (e) => {

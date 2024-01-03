@@ -32,8 +32,10 @@ export default function App() {
       
       <Link to='/signup'><button>Signup</button></Link>
       <Link to='/login'><button>Login</button></Link>
-      
-    <div className='resourcesContainer'>
+
+    <div id="mainPage">
+      <SideMenu />
+      <div className='resourcesContainer'>
         <Routes>
           <Route path='/login' element={<Login />} />
           <Route path='/signup' element={<Signup />} />
@@ -44,7 +46,7 @@ export default function App() {
           <Route path='/tagPage' element={<TagPage />} />
         </Routes>
       </div>
-      <SideMenu />
+    </div>  
     </Router>
   );
 }
