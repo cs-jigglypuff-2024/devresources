@@ -58,25 +58,29 @@ export default function App() {
           close={() => setShowAddResource(false)}
         />
       </div>
-      
-      <Link to='/signup'><button>Signup</button></Link>
-      <Link to='/login'><button>Login</button></Link>
 
-    <div id="mainPage">
-      <SideMenu />
-      <div className='resourcesContainer'>
-        <Routes>
-          <Route path='/login' element={<Login />} />
-          <Route path='/signup' element={<Signup />} />
-          <Route path='/' element={<HomePage />} />
-          <Route path='/tag' element={<TagPage />} />
-          <Route path='/search' element={<SearchPage />} />
-          <Route path='/folder' element={<FolderPage />} />
-          <Route path='/tagPage' element={<TagPage />} />
-          <Route path='/tagsView' element={<TagsView />} />
-        </Routes>
+      <Link to='/signup'>
+        <button>Signup</button>
+      </Link>
+      <Link to='/login'>
+        <button>Login</button>
+      </Link>
+
+      <div id='mainPage'>
+        <SideMenu tags={tags} />
+        <div className='resourcesContainer'>
+          <Routes>
+            <Route path='/login' element={<Login />} />
+            <Route path='/signup' element={<Signup />} />
+            <Route path='/' element={<HomePage />} />
+            <Route path='/tag' element={<TagPage />} />
+            <Route path='/search' element={<SearchPage />} />
+            <Route path='/folder' element={<FolderPage />} />
+            <Route path='/tagPage' element={<TagPage />} />
+            <Route path='/tagsView' element={<TagsView />} />
+          </Routes>
+        </div>
       </div>
-    </div>  
     </Router>
   );
 }
