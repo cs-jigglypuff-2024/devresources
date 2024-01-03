@@ -50,7 +50,6 @@ queries.titleSearch = async (str) => {
   const values = [`%${str}%`];
 
   const result = await db.query(query, values);
-  console.log(result);
   const idObj = result.rows;
   const ids = idObj.map((el) => Number(el.id));
   console.log('query result:', ids);
