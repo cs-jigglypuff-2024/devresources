@@ -8,10 +8,12 @@ function SideMenu({ tags }) {
 
   return (
     <>
-      <div id='sideMenu'>{Tags}</div>
-      <Link to='/tagsView'>
-        <button>See all tags</button>
-      </Link>
+      <div id='sideMenu'>
+        {Tags}
+        <Link to='/tagsView'>
+          <button>See all tags</button>
+        </Link>
+      </div>
     </>
   );
 }

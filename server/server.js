@@ -84,6 +84,10 @@ app.get('/getTags', resourceController.getTags, (req, res) => {
   res.status(200).json(res.locals.tags);
 });
 
+app.post('/addTagToUser', userController.addTagToUser, (req, res) => {
+  res.sendStatus(200);
+});
+
 // catch-all route handler for any requests to an unknown route
 app.use('*', (req, res) => {
   return res.sendStatus(404);

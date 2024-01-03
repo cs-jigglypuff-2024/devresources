@@ -11,6 +11,7 @@ function TagsView() {
       .then((res) => res.json())
       .then((tags) => {
         console.log('TAGS:', tags);
+        tags = tags.map((tag) => tag.name);
         setTags(tags);
       })
       .catch((err) => {});
