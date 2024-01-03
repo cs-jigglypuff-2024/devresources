@@ -1,5 +1,5 @@
 import React from 'react'
-import '../views_styles.css';
+import '../views_styles.scss';
 
 function TagsView(props) {
   //map input array from props (props.tagList) to capsule UI elements with links to tagPage view

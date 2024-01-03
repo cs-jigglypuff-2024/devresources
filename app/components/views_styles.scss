@@ -1,0 +1,70 @@
+$highlight_color: rgb(219, 235, 239);
+.grid {
+  display: flex;
+  flex-flow: row wrap;
+  min-width: 0;
+  flex-grow: 1;
+}
+
+.row {
+  display: flex;
+  flex-flow: row nowrap;
+  flex-basis: 20%;
+  flex-grow: 1;
+  min-width: 5%;
+}
+
+.rowViewWrapper {
+  display:flex;
+  align-items: center;
+  margin: 3%;
+  width: 95%;
+}
+
+.card {
+  display: flex;
+  flex-flow: column nowrap;
+  border: 1px solid;
+  border-color: darken($highlight_color,15%);
+  // flex-basis: 15%;
+  max-width: 50%;
+  float: left;
+  background-color: $highlight_color;
+  padding: 1% 2%;
+  margin: 1%;
+  flex-basis: 28%;
+  border-radius: 25px;
+  transition: border 0.5s ease, box-shadow .3s ease, transform .2s ease, flex-basis .4s ease, flex-grow .4s ease, margin .4s ease;
+ &:hover{
+    box-shadow: -6px -6px 15px lighten($highlight_color,5%),
+                 6px  6px 15px darken($highlight_color,10%);
+    border-color: $highlight_color;
+    transform: scale(1.005);
+    background-color: lighten($highlight_color,0.5%);
+    flex-basis: 28%;
+    margin: 1% 1.5%;
+    flex-grow: 1;
+  }
+} 
+
+
+.tags {
+  display: flex;
+  flex-flow: row wrap;
+  flex-basis: auto;
+}
+
+h2, p {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+a {
+  color: black;
+  text-decoration: none;
+}
+
+.resourcesContainer {
+  background-color: $highlight_color;
+  box-shadow: inset 0 0px 30px darken($highlight_color, 30%);
+  height: 40vw;
+}
