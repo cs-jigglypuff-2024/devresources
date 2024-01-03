@@ -5,6 +5,8 @@ const app = express();
 const PORT = 3000;
 
 const filterController = require('./controllers/filterController');
+const authController = require('./controllers/authController');
+const cookieController = require('./controllers/cookieController');
 
 app.use(express.json());
 app.use(express.urlencoded());
@@ -23,6 +25,10 @@ app.get('/search/:searchStr', filterController.search, (req, res) => {
 app.post('/resources', filterController.getResources, (req, res) => {
   console.log('resources:', res.locals.resources);
   res.status(200).json(res.locals.resources);
+});
+
+app.get('/callback', authController.token, cookieController.addUser, (req, res) => {
+  res.status(200).redirect('/')
 });
 
 // catch-all route handler for any requests to an unknown route

@@ -1,6 +1,6 @@
 import React from 'react';
 import Search from './Search';
-import { BrowserRouter as Router, Route, Routes, Link, BrowserRouter } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Routes, Link} from 'react-router-dom';
 import Login from './Authentication/Login';
 import Signup from './Authentication/Signup';
 import HomePage   from './PageContainers/HomePage';
