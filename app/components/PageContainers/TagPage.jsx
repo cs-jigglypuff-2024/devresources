@@ -61,11 +61,24 @@ function TagPage() {
               });
           });
       });
+
+    //TODO: Check if user is following tag already
   }, [tag]);
+
+  const follow = () => {
+    console.log('Now following this tag');
+
+    fetch('/addTagToUser', {
+      method: 'POST',
+      headers: { 'Content-type': 'application/json; charset=UTF-8' },
+      body: JSON.stringify({ tag }),
+    });
+  };
 
   return (
     <div>
       <h1>{tag}</h1>
+      <button onClick={follow}>Follow Tag</button>
       <RowView cards={newCards} title='NEW' />
       <RowView cards={trendingCards} title='TRENDING' />
     </div>

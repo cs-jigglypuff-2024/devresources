@@ -101,7 +101,7 @@ queries.getTags = async () => {
   const resource = result.rows;
   console.log('This is response from getTags query: ', resource);
   return resource;
-}
+};
 
 queries.newTag = async (str) => {
   const query = 'INSERT INTO tags (name) VALUES ($1)';
@@ -121,16 +121,33 @@ queries.newFolder = async (str) => {
   return;
 };
 
-queries.addTagToUser = async (obj) => {
+queries.addTagToUser = async (userId, tagId) => {
   const query = 'INSERT INTO user_tag_join (user_id, tag_id) VALUES ($1, $2)';
 
-  const values = [obj.userId, obj.tagId];
+  const values = [userId, tagId];
 
   await db.query(query, values);
   return;
 };
 
+//TODO: make this query work
+queries.addTagByNameToUser = async (userId, tagName) => {
+  const query1 = `
+    SELECT id
+    FROM tags
+    WHERE name = $1
+  `;
+  const values1 = [tagName];
+  const result1 = await db.query(query1, values1);
+  const tagId = result1.rows[0].id;
 
+  const query2 = 'INSERT INTO user_tag_join (user_id, tag_id) VALUES ($1, $2)';
+
+  const values2 = [userId, tagId];
+
+  await db.query(query2, values2);
+  return;
+};
 
 queries.addTagToResource = async (obj) => {
   const query =
@@ -182,11 +199,28 @@ queries.getTagIdsFromUsers = async (num) => {
   return result;
 };
 
+queries.getTagNamesFromUser = async (user_id) => {
+  const query = `
+  SELECT tags.name 
+  FROM tags 
+  INNER JOIN user_tag_join 
+  ON tags.id = user_tag_join.tag_id
+  WHERE user_tag_join.user_id = $1
+  `;
+
+  const value = [user_id];
+
+  const result = await db.query(query, value);
+  const tagsObjArr = result.rows;
+  const tags = tagsObjArr.map((el) => el.name);
+  return tags;
+};
+
 queries.getResourceIdsByTag = async (tag, type, limit) => {
   const query1 = `SELECT id FROM tags WHERE LOWER(name) = $1`;
   const value1 = [tag];
   const result1 = await db.query(query1, value1);
-  const tagId = result1.rows[0].id;
+  const tagId = result1.rows[0]?.id;
   console.log('tagId', tagId);
 
   let query2;

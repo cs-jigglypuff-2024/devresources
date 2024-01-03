@@ -57,17 +57,17 @@ $white2: rgb(177, 192, 211);
   margin: 1%;
   flex-basis: 26%;
   border-radius: 25px;
-  transition: 
-    border 0.5s ease, 
-    box-shadow .3s ease, 
-    transform .2s ease, 
-    flex-basis .4s ease, 
-    flex-grow .4s ease, 
-    margin .4s ease;
- &:hover{
-    box-shadow: 
-      -6px -6px 15px lighten($mixGlow,24%),
-       6px  6px 15px lighten($mixGlow,20%);
+  transition:
+    border 0.5s ease,
+    box-shadow 0.3s ease,
+    transform 0.2s ease,
+    flex-basis 0.4s ease,
+    flex-grow 0.4s ease,
+    margin 0.4s ease;
+  &:hover {
+    box-shadow:
+      -6px -6px 15px lighten($mixGlow, 24%),
+      6px 6px 15px lighten($mixGlow, 20%);
     border-color: $highlight_color;
     transform: scale(1.005);
     background-color: $mixGlow;
@@ -83,18 +83,22 @@ $white2: rgb(177, 192, 211);
   flex-basis: auto;
 }
 
-h1, h2, h3, label, p {
-  font-family: 
-    system-ui, 
-    -apple-system, 
-    BlinkMacSystemFont, 
-    'Segoe UI', 
-    Roboto, 
-    Oxygen, 
-    Ubuntu, 
-    Cantarell, 
-    'Open Sans', 
-    'Helvetica Neue', 
+h1,
+h2,
+h3,
+label,
+p {
+  font-family:
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    'Segoe UI',
+    Roboto,
+    Oxygen,
+    Ubuntu,
+    Cantarell,
+    'Open Sans',
+    'Helvetica Neue',
     sans-serif;
   color: white;
 }
@@ -107,7 +111,7 @@ a {
 .resourcesContainer {
   background-color: $highlight_color;
   box-shadow: inset 0 0px 30px darken($highlight_color, 30%);
-  width:82%;
+  width: 82%;
   min-height: 80vh;
 }
 
@@ -115,26 +119,30 @@ a {
   width: 40px;
   height: 30px;
   border-radius: 5px;
-  border: 1px solid (darken($mixGlow2,10%));
+  border: 1px solid (darken($mixGlow2, 10%));
   background-color: (($mixGlow));
   box-shadow: inset 0px 0px 15px ($mixGlow2);
   font-size: 17px;
   font-weight: 400;
   color: white;
   cursor: pointer;
-  transition:  box-shadow .1s ease, transform .1s ease, background-color .3s ease;
-  
+  transition:
+    box-shadow 0.1s ease,
+    transform 0.1s ease,
+    background-color 0.3s ease;
+
   &:hover {
-    box-shadow: 0px 0px 15px lighten($mixGlow2,15%);
+    box-shadow: 0px 0px 15px lighten($mixGlow2, 15%);
     transform: scale(1.01);
-    background-color: darken($highlight_color2,30%);
-    border: 1px solid lighten($highlight_color2,10%);
+    background-color: darken($highlight_color2, 30%);
+    border: 1px solid lighten($highlight_color2, 10%);
   }
-  &:active { 
-    box-shadow: 0px 0px 25px darken($highlight_color2,15%),
-             inset 0px 0px 15px white;
+  &:active {
+    box-shadow:
+      0px 0px 25px darken($highlight_color2, 15%),
+      inset 0px 0px 15px white;
     transform: translate(1px, 1px);
-    background-color: darken($highlight_color2,20%);
+    background-color: darken($highlight_color2, 20%);
   }
 }
 
@@ -144,12 +152,13 @@ a {
   padding: 2vw;
   height: auto;
   width: 15%;
-  background-color: lighten($highlight_color,2%);
-  box-shadow: inset -15px 0px 20px darken($highlight_color,3%);
+  background-color: lighten($highlight_color, 2%);
+  box-shadow: inset -15px 0px 20px darken($highlight_color, 3%);
 }
 
 .tag {
-  font-family: Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-family: Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue',
+    sans-serif;
   font-size: 14px;
   width: 7vw;
   text-align: center;
@@ -160,7 +169,7 @@ a {
   margin: 10px 0px;
   transition: background-color 0.3s ease;
   &:hover {
-    background-color: lighten($mixGlow2,10%);
+    background-color: lighten($mixGlow2, 10%);
   }
 }
 
@@ -197,11 +206,11 @@ a {
 
 .addResourceOverlay {
   z-index: 2;
-  background-color: #DDD;
+  background-color: #ddd;
   position: fixed;
   width: 100%;
   height: 100vh;
-  top:0;
+  top: 0;
   left: 0;
   display: flex;
   justify-content: center;
@@ -211,13 +220,13 @@ a {
 .addResourceBody {
   margin: 1%;
   padding: 10px;
-  background-color: #AAA;
+  background-color: #aaa;
   width: 80%;
   height: 80%;
   max-width: 600px;
   border-radius: 10px;
   border: 2px solid;
-  border-color: darken($highlight_color,15%);
+  border-color: darken($highlight_color, 15%);
   background-color: $highlight_color;
   h3 {
     width: 100%;
@@ -234,7 +243,8 @@ a {
     margin: 10px 0px 0px 0px;
     width: 100%;
   }
-  input, textarea {
+  input,
+  textarea {
     width: 100%;
     border: 0px;
     padding: 5px;
@@ -299,7 +309,7 @@ a {
   button {
     border: none;
     background-color: transparent;
-    &:hover{
+    &:hover {
       font-weight: bold;
       cursor: pointer;
     }
