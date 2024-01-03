@@ -1,12 +1,13 @@
-$highlight_color: rgb(19, 29, 32);
-$highlight_color2: aquamarine;
+$highlight_color: rgb(15, 18, 35);
+$highlight_color2: rgb(129, 124, 228);
 $mixGlow: mix($highlight_color, $highlight_color2, 95%);
 $mixGlow2: mix($highlight_color, $highlight_color2, 80%);
-
+$white2: rgb(177, 192, 211);
 .header {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   align-items: center;
+  background-color: $mixGlow;
 }
 
 .grid {
@@ -167,6 +168,32 @@ a {
   display: flex;
   flex-flow: row, nowrap;
 }
+.headerButton {
+  width: auto;
+  height: 40px;
+  padding: 0px 15px;
+  border-radius: 5px;
+  border: 1px solid (darken($mixGlow2,10%));
+  background-color: (($mixGlow));
+  box-shadow: inset 0px 0px 15px ($mixGlow2);
+  font-size: 14px;
+  font-weight: 400;
+  color: $white2;
+  border-radius: 15px;
+  cursor: pointer;
+  transition:  box-shadow .1s ease, border .2s ease, transform .1s ease, background-color .3s ease;
+  
+  &:hover {
+    box-shadow: 0px 0px 15px lighten($mixGlow2,15%);
+    border: 1px solid lighten($highlight_color2,10%);
+  }
+  &:active { 
+    box-shadow: 0px 0px 25px darken($highlight_color2,15%),
+             inset 0px 0px 15px white;
+    transform: translate(1px, 1px);
+    background-color: darken($highlight_color2,20%);
+  }
+}
 
 .addResourceOverlay {
   z-index: 2;
@@ -208,7 +235,32 @@ a {
     padding: 5px;
   }
   button {
-    margin: 15px 0px;
+      margin: 15px 5px;
+      width: auto;
+    height: 30px;
+    justify-content: center;
+    border-radius: 5px;
+    border: 1px solid (darken($mixGlow2,10%));
+    background-color: (($mixGlow));
+    box-shadow: inset 0px 0px 15px ($mixGlow2);
+    font-size: 17px;
+    font-weight: 400;
+    color: white;
+    cursor: pointer;
+    transition:  box-shadow .1s ease, transform .1s ease, background-color .3s ease;
+    
+    &:hover {
+      box-shadow: 0px 0px 15px lighten($mixGlow2,15%);
+      transform: scale(1.01);
+      background-color: darken($highlight_color2,30%);
+      border: 1px solid lighten($highlight_color2,10%);
+    }
+    &:active { 
+      box-shadow: 0px 0px 25px darken($highlight_color2,15%),
+              inset 0px 0px 15px white;
+      transform: translate(1px, 1px);
+      background-color: darken($highlight_color2,20%);
+    }
   }
 }
 
