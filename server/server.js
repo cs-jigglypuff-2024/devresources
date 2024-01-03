@@ -86,7 +86,11 @@ app.get(
 );
 
 // Add new resource to database
-app.post('/newResource', resourceController.add, (req, res) => {
+// app.post('/newResource', resourceController.add, (req, res) => {
+//   console.log('end of adding new resource');
+//   res.status(200).json({response: 'successfully added'});
+// })
+app.post('/newResource', (req, res) => {
   console.log('end of adding new resource');
   res.status(200).json({ response: 'successfully added' });
 });

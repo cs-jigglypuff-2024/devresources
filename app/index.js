@@ -5,7 +5,8 @@ import App from './components/App.jsx';
 //wrapping app in react router
 const root = createRoot(document.getElementById('app'));
 root.render(
-  <React.StrictMode>
-      <App />
-  </React.StrictMode>
+  // <React.StrictMode>
+  //     <App />
+  // </React.StrictMode>
+  <App />
 );

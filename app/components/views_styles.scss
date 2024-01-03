@@ -291,22 +291,25 @@ a {
   .selectTags {
     display: flex;
     flex-wrap: wrap;
+    max-height: 300px;
+    overflow-y: scroll;
   }
   .tag {
     border: none;
     margin: 2px;
-    border-radius: 15px;
+    padding: 0px 5px;
+    border-radius: 10px;
     width: auto;
     height: auto;
     cursor: pointer;
-    font-size: 0.7em;
+    font-size: 0.6em;
   }
-  .tagUnselected {
-    background-color: lightpink;
-  }
-  .tagSelected {
-    background-color: lightblue;
 
+  .selected {
+    background-color: blue;
+    &:hover {
+      background-color: lighten(blue,10%);
+    }
   }
 }
 
