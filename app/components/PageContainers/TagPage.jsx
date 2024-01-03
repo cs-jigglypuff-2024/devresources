@@ -6,7 +6,7 @@ function TagPage() {
   //fetch queries here, prop drill all returns into appropriate row views below.
   return (
     <div>
-      TagPage
+      TagPage, row view below:
     <RowView></RowView>
     </div>
   )
