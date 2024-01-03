@@ -1,6 +1,6 @@
 import React from 'react'
 import CardView from '../CardComponents/CardView'
-import '../views_styles.css';
+import '../views_styles.scss';
 
 function GridView() {
   //map received props array to components and return below in a flexbox with flex-flow: row, wrap

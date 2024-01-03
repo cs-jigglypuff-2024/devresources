@@ -1,6 +1,6 @@
 import React from 'react'
 import TagsView from './TagsView'
-import '../views_styles.css';
+import '../views_styles.scss';
 
 function CardView() {
   //card will receive, via props: title, description, url, clicks, date_added, type and a list of tags
