@@ -23,6 +23,7 @@ module.exports = {
       '/resources': 'http://localhost:3000',
       '/callback': 'http://localhost:3000'
       '/newResource': 'http://localhost:3000',
+      '/getTags': 'http://localhost:3000',
     },
   },
   module: {
