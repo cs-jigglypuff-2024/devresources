@@ -1,5 +1,7 @@
 import React from 'react'
 import TagsView from './TagsView'
+import '../views_styles.css';
+
 function CardView() {
   //card will receive, via props: title, description, url, clicks, date_added, type and a list of tags
   //mock props:
@@ -15,7 +17,7 @@ function CardView() {
 
   //note how Tags component is outside the <a>, so that clicking a tag doesn't link to a url.
   return (
-    <div>
+    <div className='card'>
       <a href={props.url}>
         <h2>(title)     {props.title}</h2>
         <p>(description){props.description}</p>
@@ -23,7 +25,7 @@ function CardView() {
         <p>(dateAdded)  {props.date_added}</p>
         <p>(Type)       {props.type}</p>
       </a>
-      <TagsView tagList={props.tagList}/>
+        <TagsView tagList={props.tagList}/>
     </div>
   )
 }

@@ -26,7 +26,7 @@ function SearchPage() {
 
   return (
     <div>
-      SearchPage
+      SearchPage, gridView below:
       <GridView cards={cards} />
     </div>
   );
