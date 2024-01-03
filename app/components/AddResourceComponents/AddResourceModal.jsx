@@ -3,7 +3,7 @@ import React from 'react'
 const AddResourceModal = ({open, close}) => {
   
   const newResourceHandler = (e) => {
-    e.preventDefault();
+    // e.preventDefault();
     const obj = {};
     const formData = new FormData(e.currentTarget);
     for (let [key, value] of formData.entries()) {
@@ -18,6 +18,11 @@ const AddResourceModal = ({open, close}) => {
     .then((response) => response.json())
     .then((json) => console.log(json))
     .catch((err) => console.log(err))
+  }
+
+  const multiSelectOptions = []
+  for (let i = 1; i < 10; i++) {
+    multiSelectOptions.push(<option value={`tag #${i}`}>{`tag #${i}`}</option>)
   }
   
   if (!open) return null
@@ -35,6 +40,10 @@ const AddResourceModal = ({open, close}) => {
           <input type="text" name='url' id="url"/><br />
           <label>Description:</label><br />
           <textarea type="text" name='description' id="description"/><br />
+          <label>Tags:</label>
+          <select name="tags" id="tags" multiple>
+            {multiSelectOptions}
+          </select>
           <button type="submit">Submit</button>
         </form>
       </div>
