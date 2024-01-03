@@ -20,6 +20,7 @@ module.exports = {
       // list every endpoint
       '/search/*': 'http://localhost:3000',
       '/resources': 'http://localhost:3000',
+      '/newResource': 'http://localhost:3000',
     },
   },
   module: {
