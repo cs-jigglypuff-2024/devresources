@@ -20,8 +20,19 @@ function RowView({ cards, title }) {
     }
     setCardViewDisplayed(tempArray);
     setCarouselPage(carouselPage + 1);
-  };
-  const initCards = cardViewDisplayed.slice(0, 3);
+  }
+
+  const prevPage = function() {
+    //push the cards into cardViewDisplayed based on what page one is on. page 0 starts from card at index 0
+    const tempArray = [];
+    for (let i = carouselPage+cardPerPage; i > carouselPage ; i--) {
+      tempArray.push(cardViewArray[i]);
+    }
+    setCardViewDisplayed(tempArray);
+    setCarouselPage(carouselPage - 1);
+  }
+
+  const initCards = cardViewDisplayed.slice(0,3);
   useEffect(() => {
     setCardViewDisplayed([initCards]);
   }, []);
@@ -31,6 +42,7 @@ function RowView({ cards, title }) {
         <h2>{title}</h2>
       </div>
       <div id='gridViewWrapper'>
+      <button className="rowButton" onClick={() => {prevPage()}}> {"<"} </button>
         {cardViewDisplayed}
         <button
           className='rowButton'
