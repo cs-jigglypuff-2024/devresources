@@ -1,17 +1,18 @@
 import React from 'react';
-
 import './views_styles.scss';
+import Tag from './Tag';
+
 function SideMenu() {
-  //parent container for router that chooses between pages
+  const clickHandler = () => {
+    const tag = e.target.id;
+    console.log(tag);
+  };
 
   return (
     <div id='sideMenu'>
-      <div className='tag' id='React'>
-        #react
-      </div>
-      <div className='tag' id='interview-prep'>
-        #interview-prep
-      </div>
+      <Tag tag='React' />
+      <Tag tag='interview-prep' />
+      <Tag tag='Javascript' />
     </div>
   );
 }

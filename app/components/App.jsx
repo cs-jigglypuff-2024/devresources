@@ -8,10 +8,8 @@ export default function App() {
     <>
       <h1>App header</h1>
       <Search />
-      <div class='layout'>
-        <SideMenu />
-        <ResourcesContainer />
-      </div>
+      <SideMenu />
+      <ResourcesContainer />
     </>
   );
 }
