@@ -1,5 +1,12 @@
 $highlight_color: rgb(219, 235, 239);
 
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+
 .grid {
   display: flex;
   flex-flow: row wrap;
@@ -95,7 +102,7 @@ a {
   background-color: $highlight_color;
   box-shadow: inset 0 0px 30px darken($highlight_color, 30%);
   height: 40vw;
-  display: inline-block;
+
 }
 
 #sideMenu {
@@ -111,4 +118,64 @@ a {
   border-radius: 10px;
   padding: 7px;
   margin: 10px 0px;
+}
+
+
+
+.addResourceOverlay {
+  z-index: 2;
+  background-color: #DDD;
+  position: fixed;
+  width: 100%;
+  height: 100vh;
+  top:0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.addResourceBody {
+  margin: 1%;
+  padding: 10px;
+  background-color: #AAA;
+  width: 80%;
+  height: 80%;
+  max-width: 600px;
+  border-radius: 10px;
+  border: 2px solid;
+  border-color: darken($highlight_color,15%);
+  background-color: $highlight_color;
+  h3 {
+    width: 100%;
+    text-align: center;
+  }
+}
+
+.addResourceform {
+  label {
+    margin: 15px 0px;
+  }
+  input, textarea {
+    width: 100%;
+    border: 0px;
+    padding: 5px;
+  }
+  button {
+    margin: 15px 0px;
+  }
+}
+
+.closeAddResource {
+  width: 100%;
+  display: flex;
+  justify-content: right;
+  button {
+    border: none;
+    background-color: transparent;
+    &:hover{
+      font-weight: bold;
+      cursor: pointer;
+    }
+  }
 }
