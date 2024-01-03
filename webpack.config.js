@@ -19,8 +19,10 @@ module.exports = {
     proxy: {
       // list every endpoint
       '/search/*': 'http://localhost:3000',
+      '/search/tag': 'http://localhost:3000',
       '/resources': 'http://localhost:3000',
       '/callback': 'http://localhost:3000'
+      '/newResource': 'http://localhost:3000',
     },
   },
   module: {

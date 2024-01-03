@@ -13,7 +13,7 @@ function HomePage() {
 
   return (
     <div className='rowView'>
-      <RowView cards={cards} />
+      {/* <RowView cards={cards} /> */}
     </div>
   )
 }

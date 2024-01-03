@@ -24,12 +24,11 @@ function SearchPage() {
       .then((resArr) => {
         setCards(resArr);
       });
-  }, []);
+  }, [ids]);
 
   return (
     <div>
-      SearchPage, gridView below:
-      <GridView cards={cards} />
+      <GridView cards={cards} title={'search results:'}/>
     </div>
   );
 }
