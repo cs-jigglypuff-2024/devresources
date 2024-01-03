@@ -99,7 +99,7 @@ queries.getTags = async () => {
   const query = 'SELECT * FROM tags';
   const result = await db.query(query);
   const resource = result.rows;
-  console.log('This is response from getTags query: ', resource);
+  // console.log('This is response from getTags query: ', resource);
   return resource;
 }
 

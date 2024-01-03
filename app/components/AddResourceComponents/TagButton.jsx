@@ -1,13 +1,11 @@
 import React, {useState} from 'react'
 
+const TagButton = ({name, key}) => {
 
-const TagButton = ({name}) => {
-
-  const [selected, setSelected] = useState(false)
-  const [selectedClass, setSelectedClass] = useState('tagUnselected')
-
+  const [selectedTag, setSelectedTag] = useState('notSelected')
+  
   return (
-    <div className='tag'>
+    <div id={`${key}`} className={`tag ${selectedTag}`} onClick={() => selectedTag === 'notSelected' ? setSelectedTag('selected') : setSelectedTag('notSelected')}>
       <p>{name}</p>
     </div>
   )
