@@ -13,8 +13,15 @@ app.use(cookieParser());
 
 // route handler to respond with main app
 app.get('/', (req, res) => {
-  console.log('accessing');
   return res.status(200).sendFile(path.join(__dirname, '../app/index.html'));
+});
+
+// Temporary seeding of cookies with a test user until login is done
+app.get('/testUser', (req, res) => {
+  console.log('adding cookies');
+  res.cookie('user_id', '2');
+  res.cookie('username', 'PeterThePenguin');
+  return res.sendStatus(200);
 });
 
 // Find resource ids for resources with a given string in the title
@@ -35,8 +42,8 @@ app.post('/resources', filterController.getResources, (req, res) => {
 
 app.post('/newResource', resourceController.add, (req, res) => {
   console.log('end of adding new resource');
-  res.status(200).json({response: 'successfully added'});
-})
+  res.status(200).json({ response: 'successfully added' });
+});
 
 // catch-all route handler for any requests to an unknown route
 app.use('*', (req, res) => {
