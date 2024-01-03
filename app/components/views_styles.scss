@@ -1,9 +1,19 @@
 $highlight_color: rgb(219, 235, 239);
+
 .grid {
   display: flex;
   flex-flow: row wrap;
-  min-width: 0;
-  flex-grow: 1;
+  min-width: 5%;
+  flex-basis: 20%;
+}
+
+#gridViewWrapper {
+  display: flex;
+  align-items: center;
+  width: 95%;
+  padding: 1% 1%;
+  align-items: stretch;
+  max-height: 20vw;
 }
 
 .row {
@@ -17,13 +27,14 @@ $highlight_color: rgb(219, 235, 239);
 .rowViewWrapper {
   display: flex;
   align-items: center;
-  margin: 3%;
   width: 95%;
+  margin: 3%;
 }
 
 .card {
   display: flex;
   flex-flow: column nowrap;
+  justify-content: space-between;
   border: 1px solid;
   border-color: darken($highlight_color, 15%);
   // flex-basis: 15%;
@@ -50,7 +61,6 @@ $highlight_color: rgb(219, 235, 239);
     background-color: lighten($highlight_color, 0.5%);
     flex-basis: 28%;
     margin: 1% 1.5%;
-    flex-grow: 1;
   }
 }
 
