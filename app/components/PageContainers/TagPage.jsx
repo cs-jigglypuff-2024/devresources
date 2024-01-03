@@ -33,32 +33,32 @@ function TagPage() {
           .then((resArr) => {
             console.log('NEW:', resArr);
             setNewCards(resArr);
-          });
-      });
 
-    // get trending
-    fetch(`/search/tag`, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({ tag, type: 'trending', num: 5 }),
-    })
-      .then((res) => res.json())
-      .then((ids) => {
-        console.log('Returned ids:', ids);
+            // get trending
+            fetch(`/search/tag`, {
+              method: 'POST',
+              headers: {
+                'Content-Type': 'application/json',
+              },
+              body: JSON.stringify({ tag, type: 'trending', num: 5 }),
+            })
+              .then((res) => res.json())
+              .then((ids) => {
+                console.log('Returned ids:', ids);
 
-        fetch('/resources', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify({ ids }),
-        })
-          .then((res) => res.json())
-          .then((resArr) => {
-            console.log('TRENDING:', resArr);
-            setTrendingCards(resArr);
+                fetch('/resources', {
+                  method: 'POST',
+                  headers: {
+                    'Content-Type': 'application/json',
+                  },
+                  body: JSON.stringify({ ids }),
+                })
+                  .then((res) => res.json())
+                  .then((resArr) => {
+                    console.log('TRENDING:', resArr);
+                    setTrendingCards(resArr);
+                  });
+              });
           });
       });
   }, [tag]);
