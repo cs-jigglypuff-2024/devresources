@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import CardView from '../CardComponents/CardView';
 import '../views_styles.scss';
+import { useState , useEffect } from 'react';
 
 function RowView({ cards, title }) {
   //these are all cards
@@ -28,7 +29,8 @@ function RowView({ cards, title }) {
   return (
     <div className='grid'>
       <div className='gridHeader'>
-        <h2>{title + 'page' + carouselPage}</h2>
+        <h2>{ title }</h2>
+
       </div>
       <div id='gridViewWrapper'>
         {cardViewDisplayed}

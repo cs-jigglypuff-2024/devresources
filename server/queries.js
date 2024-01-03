@@ -95,6 +95,14 @@ queries.newUser = async (username) => {
   return id;
 };
 
+queries.getTags = async () => {
+  const query = 'SELECT * FROM tags';
+  const result = await db.query(query);
+  const resource = result.rows;
+  console.log('This is response from getTags query: ', resource);
+  return resource;
+}
+
 queries.newTag = async (str) => {
   const query = 'INSERT INTO tags (name) VALUES ($1)';
 
@@ -105,7 +113,7 @@ queries.newTag = async (str) => {
 };
 
 queries.newFolder = async (str) => {
-  const query = 'INSERT INTO tags (name) VALUES ($1)';
+  const query = 'INSERT INTO folders (name) VALUES ($1)';
 
   const value = [str];
 
@@ -121,6 +129,8 @@ queries.addTagToUser = async (obj) => {
   await db.query(query, values);
   return;
 };
+
+
 
 queries.addTagToResource = async (obj) => {
   const query =

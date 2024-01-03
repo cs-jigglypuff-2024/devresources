@@ -58,14 +58,12 @@ export default function App() {
           close={() => setShowAddResource(false)}
         />
       </div>
+      
+      <Link to='/signup'><button>Signup</button></Link>
+      <Link to='/login'><button>Login</button></Link>
 
-      <Link to='/signup'>
-        <button>Signup</button>
-      </Link>
-      <Link to='/login'>
-        <button>Login</button>
-      </Link>
-
+    <div id="mainPage">
+      <SideMenu />
       <div className='resourcesContainer'>
         <Routes>
           <Route path='/login' element={<Login />} />
@@ -78,7 +76,7 @@ export default function App() {
           <Route path='/tagsView' element={<TagsView />} />
         </Routes>
       </div>
-      <SideMenu tags={tags} />
+    </div>  
     </Router>
   );
 }

@@ -21,10 +21,12 @@ module.exports = {
       '/search/*': 'http://localhost:3000',
       '/search/tag': 'http://localhost:3000',
       '/resources': 'http://localhost:3000',
+      '/callback': 'http://localhost:3000'
       '/newResource': 'http://localhost:3000',
       '/username': 'http://localhost:3000',
       '/testUser': 'http://localhost:3000',
       '/userTags': 'http://localhost:3000',
+      '/getTags': 'http://localhost:3000',
     },
   },
   module: {
