@@ -20,6 +20,12 @@ app.get('/search/:searchStr', filterController.search, (req, res) => {
   res.status(200).json(res.locals.ids);
 });
 
+app.post('/resources', filterController.getResources, (req, res) => {
+  console.log('end of resoruces chain');
+  console.log('resources:', res.locals.resources);
+  res.status(200).json(res.locals.resources);
+});
+
 // catch-all route handler for any requests to an unknown route
 app.use('*', (req, res) => {
   return res.sendStatus(404);
