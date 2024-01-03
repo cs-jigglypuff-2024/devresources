@@ -5,6 +5,7 @@ import '../views_styles.scss';
 function CardView( { card } ) {
   //further destructure card into variables
   const { 
+    id,
     title, 
     url, 
     description, 
@@ -24,6 +25,17 @@ function CardView( { card } ) {
     tagList: ['react','interview']
   }
 
+  const countHandler = async() => {
+
+    const response = await fetch('/count', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({ id: id })
+    });
+  }
+
   //note how Tags component is outside the <a>, so that clicking a tag doesn't link to a url.
   return (
     <div className='card'>
@@ -35,7 +47,7 @@ function CardView( { card } ) {
         <p> {cards.date_added}</p>
       </a> */}
       {/* actual card data: prop drill */}
-      <a href={url}>
+      <a href={url} onClick={countHandler}>
         <h2>{title}</h2>
         <p>{description}</p>
         <p>{clicks}</p>
