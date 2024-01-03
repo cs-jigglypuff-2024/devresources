@@ -3,7 +3,8 @@ const query = require('../queries');
 const filterController = {};
 
 filterController.search = (req, res, next) => {
-  const { searchStr } = req.params;
+  let { searchStr } = req.params;
+  searchStr = searchStr.toLowerCase();
   console.log('Search Requested for:', searchStr);
   query.titleSearch(searchStr).then((ids) => {
     console.log('Search complete');
