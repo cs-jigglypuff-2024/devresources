@@ -24,7 +24,7 @@ function SearchPage() {
       .then((resArr) => {
         setCards(resArr);
       });
-  }, []);
+  }, [ids]);
 
   return (
     <div>
