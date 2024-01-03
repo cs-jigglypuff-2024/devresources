@@ -1,9 +1,10 @@
-import React from 'react'
+import React, {useState, useEffect} from 'react'
+import TagButton from './TagButton';
 import '../views_styles.scss'
 const AddResourceModal = ({open, close}) => {
-  
+
   const newResourceHandler = (e) => {
-    e.preventDefault();
+    // e.preventDefault();
     const obj = {};
     const formData = new FormData(e.currentTarget);
     for (let [key, value] of formData.entries()) {
@@ -19,6 +20,22 @@ const AddResourceModal = ({open, close}) => {
     .then((json) => console.log(json))
     .catch((err) => console.log(err))
   }
+
+  
+  const multiSelectOptions = []
+  useEffect(() => {
+    fetch('/getTags')
+      .then((response) => response.json())
+      .then((data) => {
+        for (let i of data) {
+          // console.log(i.name)
+          // multiSelectOptions.push(<TagButton id={i.id} name={i.name}/>)
+          multiSelectOptions.push(<p>Test</p>)
+        }
+        // console.log(multiSelectOptions)
+      })
+  }, []);
+
   
   if (!open) return null
   return (
@@ -29,12 +46,16 @@ const AddResourceModal = ({open, close}) => {
         </div>
         <h3>Add New Resource</h3>
         <form onSubmit={newResourceHandler} className='addResourceForm'>
-          <label>Title:</label><br />
-          <input type="text" name='title' id="title"/><br />
-          <label>Link:</label><br />
-          <input type="text" name='url' id="url"/><br />
-          <label>Description:</label><br />
-          <textarea type="text" name='description' id="description"/><br />
+          <label>Title:</label>
+          <input type="text" name='title' id="title" required/>
+          <label>Link:</label>
+          <input type="text" name='url' id="url" required/>
+          <label>Description:</label>
+          <textarea type="text" name='description' id="description" required/>
+          <label>Tags:</label>
+          <div className='selectTags'>
+            {multiSelectOptions}
+          </div>
           <button type="submit">Submit</button>
         </form>
       </div>

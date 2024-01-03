@@ -39,9 +39,20 @@ app.get('/callback', authController.token, cookieController.addUser, (req, res) 
   res.status(200).redirect('/')
 });
 
+app.get('/callback', authController.token, cookieController.addUser, (req, res) => {
+  res.status(200).redirect('/')
+});
+
+// Add new resource to database
 app.post('/newResource', resourceController.add, (req, res) => {
   console.log('end of adding new resource');
   res.status(200).json({response: 'successfully added'});
+})
+
+// Get all tags
+app.get('/getTags', resourceController.getTags, (req, res) => {
+  console.log('done getting tags');
+  res.status(200).json(res.locals.tags)
 })
 
 // catch-all route handler for any requests to an unknown route
