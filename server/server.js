@@ -19,6 +19,15 @@ app.get('/', (req, res) => {
   return res.status(200).sendFile(path.join(__dirname, '../app/index.html'));
 });
 
+app.post(
+  '/addTagToUser',
+  userController.addTagToUser,
+  (req, res) => {
+    console.log('Added tag');
+    res.sendStatus(200);
+  }
+);
+
 // Temporary seeding of cookies with a test user until login is done
 app.get('/testUser', (req, res) => {
   console.log('adding cookies');
@@ -82,10 +91,6 @@ app.post('/newResource', resourceController.add, (req, res) => {
 app.get('/getTags', resourceController.getTags, (req, res) => {
   console.log('done getting tags');
   res.status(200).json(res.locals.tags);
-});
-
-app.post('/addTagToUser', userController.addTagToUser, (req, res) => {
-  res.sendStatus(200);
 });
 
 // catch-all route handler for any requests to an unknown route

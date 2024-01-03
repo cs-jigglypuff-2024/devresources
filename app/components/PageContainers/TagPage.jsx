@@ -70,8 +70,8 @@ function TagPage() {
 
     fetch('/addTagToUser', {
       method: 'POST',
-      headers: { 'Content-type': 'application/json' },
-      body: JSON.stringify(tag),
+      headers: { 'Content-type': 'application/json; charset=UTF-8' },
+      body: JSON.stringify({ tag }),
     });
   };
 

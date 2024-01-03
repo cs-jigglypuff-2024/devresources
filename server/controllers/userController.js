@@ -11,8 +11,10 @@ userController.getTags = async (req, res, next) => {
 
 // Add tag to a user's tags they are following
 userController.addTagToUser = (req, res, next) => {
+  console.log('in addTagToUser middleware');
   const userId = req.cookies.user_id;
   const { tag } = req.body;
+  console.log('inputs:', userId, tag);
   query.addTagByNameToUser(userId, tag);
   return next();
 };
