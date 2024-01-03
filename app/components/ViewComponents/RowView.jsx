@@ -1,6 +1,7 @@
 import React from 'react';
 import CardView from '../CardComponents/CardView';
 import '../views_styles.scss';
+
 function RowView( { cards, title }) {
   //these are all cards
   const cardViewArray = cards.map((card) => <CardView card={card}></CardView>);
@@ -34,8 +35,9 @@ function RowView( { cards, title }) {
         {cardViewDisplayed}
         <button className="rowButton" onClick={() => {nextPage()}}> {">"} </button>
       </div>
+
     </div>
-  )
+  );
 }
 
-export default RowView
+export default RowView;

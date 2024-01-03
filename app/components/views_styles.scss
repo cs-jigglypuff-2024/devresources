@@ -1,6 +1,14 @@
 $highlight_color: rgb(19, 29, 32);
 $highlight_color2: aquamarine;
 $mixGlow: mix($highlight_color, $highlight_color2, 95%);
+
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
 .grid {
   display: flex;
   flex-flow: row wrap;
@@ -27,8 +35,8 @@ $mixGlow: mix($highlight_color, $highlight_color2, 95%);
   min-width: 5%;
 }
 
-#rowViewWrapper {
-  display:flex;
+.rowViewWrapper {
+  display: flex;
   align-items: center;
   width: 95%;
   margin: 3%;
@@ -39,7 +47,7 @@ $mixGlow: mix($highlight_color, $highlight_color2, 95%);
   flex-flow: column nowrap;
   justify-content: space-between;
   border: 1px solid;
-  border-color: darken($highlight_color,15%);
+  border-color: darken($highlight_color, 15%);
   // flex-basis: 15%;
   max-width: 50%;
   float: left;
@@ -48,18 +56,25 @@ $mixGlow: mix($highlight_color, $highlight_color2, 95%);
   margin: 1%;
   flex-basis: 26%;
   border-radius: 25px;
-  transition: border 0.5s ease, box-shadow .3s ease, transform .2s ease, flex-basis .4s ease, flex-grow .4s ease, margin .4s ease;
+  transition: 
+    border 0.5s ease, 
+    box-shadow .3s ease, 
+    transform .2s ease, 
+    flex-basis .4s ease, 
+    flex-grow .4s ease, 
+    margin .4s ease;
  &:hover{
-    box-shadow: -6px -6px 15px lighten($mixGlow,24%),
-                 6px  6px 15px lighten($mixGlow,20%);
+    box-shadow: 
+      -6px -6px 15px lighten($mixGlow,24%),
+       6px  6px 15px lighten($mixGlow,20%);
     border-color: $highlight_color;
     transform: scale(1.005);
     background-color: $mixGlow;
+
     flex-basis: 28%;
     margin: 1% 1.5%;
   }
-} 
-
+}
 
 .tags {
   display: flex;
@@ -68,8 +83,20 @@ $mixGlow: mix($highlight_color, $highlight_color2, 95%);
 }
 
 h2, p {
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-family: 
+    system-ui, 
+    -apple-system, 
+    BlinkMacSystemFont, 
+    'Segoe UI', 
+    Roboto, 
+    Oxygen, 
+    Ubuntu, 
+    Cantarell, 
+    'Open Sans', 
+    'Helvetica Neue', 
+    sans-serif;
   color: white;
+
 }
 
 a {
@@ -99,5 +126,83 @@ a {
     box-shadow: 0px 0px 15px darken($highlight_color2,30%);
     transform: translate(2px, 2px);
     background-color: darken($highlight_color2,30%);
+  }
+}
+  height: 40vw;
+
+}
+
+#sideMenu {
+  display: inline-block;
+  padding: 15px;
+}
+
+.tag {
+  font-size: 20px;
+  text-align: center;
+  color: white;
+  background-color: darkblue;
+  border-radius: 10px;
+  padding: 7px;
+  margin: 10px 0px;
+}
+
+
+
+.addResourceOverlay {
+  z-index: 2;
+  background-color: #DDD;
+  position: fixed;
+  width: 100%;
+  height: 100vh;
+  top:0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.addResourceBody {
+  margin: 1%;
+  padding: 10px;
+  background-color: #AAA;
+  width: 80%;
+  height: 80%;
+  max-width: 600px;
+  border-radius: 10px;
+  border: 2px solid;
+  border-color: darken($highlight_color,15%);
+  background-color: $highlight_color;
+  h3 {
+    width: 100%;
+    text-align: center;
+  }
+}
+
+.addResourceform {
+  label {
+    margin: 15px 0px;
+  }
+  input, textarea {
+    width: 100%;
+    border: 0px;
+    padding: 5px;
+  }
+  button {
+    margin: 15px 0px;
+  }
+}
+
+.closeAddResource {
+  width: 100%;
+  display: flex;
+  justify-content: right;
+  button {
+    border: none;
+    background-color: transparent;
+    &:hover{
+      font-weight: bold;
+      cursor: pointer;
+    }
   }
 }
