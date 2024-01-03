@@ -12,8 +12,8 @@ userController.getTags = async (req, res, next) => {
 // Add tag to a user's tags they are following
 userController.addTagToUser = (req, res, next) => {
   const userId = req.cookies.user_id;
-  const { tagName } = req.body;
-  query.addTagByNameToUser(userId, tagName);
+  const { tag } = req.body;
+  query.addTagByNameToUser(userId, tag);
   return next();
 };
 

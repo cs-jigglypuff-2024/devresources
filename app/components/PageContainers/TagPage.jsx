@@ -67,8 +67,12 @@ function TagPage() {
 
   const follow = () => {
     console.log('Now following this tag');
-    //TODO: send post request to add this tag to a user's list
-    //pug tagName on body
+
+    fetch('/addTagToUser', {
+      method: 'POST',
+      headers: { 'Content-type': 'application/json' },
+      body: JSON.stringify(tag),
+    });
   };
 
   return (
