@@ -181,7 +181,8 @@ queries.getResourceIdsByTag = async (tag, type, limit) => {
   if (type === 'new') {
     query2 = `SELECT resource_id FROM resource_tag_join WHERE tag_id = $1 ORDER BY resource_id DESC LIMIT $2`;
   } else if (type === 'trending') {
-    query2 = `SELECT resource_id FROM resource_tag_join WHERE tag_id = $1 ORDER BY clicks DESC LIMIT $2`;
+    // query2 = `SELECT resource_id FROM resource_tag_join WHERE tag_id = $1 ORDER BY clicks DESC LIMIT $2`;
+    query2 = `SELECT resource_id FROM resource_tag_join WHERE tag_id = $1 LIMIT $2`;
   }
 
   const values2 = [tagId, limit];
